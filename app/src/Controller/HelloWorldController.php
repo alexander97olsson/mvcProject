@@ -2,15 +2,6 @@
 
 namespace App\Controller;
 
-use alos17\Dice\DiceHand;
-use alos17\Yatzy\Yatzy;
-
-use function Mos\Functions\{
-    destroySession,
-    renderView,
-    url
-};
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -51,50 +42,14 @@ class HelloWorldController extends AbstractController
         ]);
     }
 
-        /**
-     * @Route("/test")
+    /**
+     * @Route("/test/{message}")
     */
-    public function testarFunc(): Response
+    public function printMyName(string $message): Response
     {
-        return new Response(
-            "this is my first controller"
-        );
-    }
-
-    public function showStartGame(): Response
-    {
-        //destroySession();
-
-        $data = [
-            "header" => "Yatzy game",
-            "action" => url("/yatzyGame/showGame"),
-            "message" => "This is the game Yatzy!",
-        ];
-
-        return $this->render('yatzystart.php', $data);
-    }
-
-    public function showGame(): Response
-    {
-        if (!isset($_SESSION["yatzyGame"])) {
-            $_SESSION["yatzyGame"] = serialize(new Yatzy());
-        }
-        $game = unserialize($_SESSION["yatzyGame"]);
-        $game->showGame();
-        $psr17Factory = new Psr17Factory();
-        $data = [
-            "header" => "Yatzy game",
-            "message" => "This is the game Yatzy!",
-        ];
-
-        $data["totalSum"] = $_SESSION["totalSum"];
-        $data["firstToss"] = $_SESSION["firstToss"];
-        $data["alldices"] = $_SESSION["alldices"];
-        $data["text"] = $_SESSION["text"];
-
-        $body = renderView("layout/yatzy.php", $data);
-        return $psr17Factory
-            ->createResponse(200)
-            ->withBody($psr17Factory->createStream($body));
+        return $this->render('printName.html.twig', [
+            'message' => $message,
+            'name' => "Name: ",
+        ]);
     }
 }
