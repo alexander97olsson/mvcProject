@@ -1,0 +1,28 @@
+{{ include('/header.html.twig') }}
+<h1>{{ header }}</h1>
+
+<p>{{ message }}</p>
+
+{% if round < 7 %}
+    <p>Total score: {{ score }}</p>
+    <p>You have to save: {{ round }}</p>
+    <p class="dice-utf8">
+        {% for value in alldices %}
+            <i class="{{ value }}"></i>
+        {% endfor %}
+    </p>
+    {% if counter != 6 %}
+        <form action="{{ action }}" method="post">
+            <input type="checkbox" name="dicesArray[]" value="0" />1
+            <input type="checkbox" name="dicesArray[]" value="1" />2
+            <input type="checkbox" name="dicesArray[]" value="2" />3
+            <input type="checkbox" name="dicesArray[]" value="3" />4
+            <input type="checkbox" name="dicesArray[]" value="4" />5<br />
+            <label>Choose dices to toss again!</label><br /><br />
+            <input name="Toss" type="submit" value="Toss">
+        </form>
+    {% endif %}
+{% else %}
+    <p>Game is over!</p>
+    <p>Total score: {{ score }}</p>
+{% endif %}

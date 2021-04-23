@@ -18,53 +18,8 @@ use function Mos\Functions\{
     url
 };
 
-class HelloWorldController extends AbstractController
+class YatzyGameController extends AbstractController
 {
-    public function helloMessage(): Response
-    {
-        return new Response(
-            "Hello world, message only"
-        );
-    }
-
-    public function helloMessageView(): Response
-    {
-        return $this->render('message.html.twig', [
-            'message' => "Hello World in view",
-        ]);
-    }
-
-    /**
-     * @Route("/hello")
-    */
-    public function hello(): Response
-    {
-        return $this->render('message.html.twig', [
-            'message' => "Hello World as controller annotation",
-        ]);
-    }
-
-    /**
-     * @Route("/hello/{message}")
-    */
-    public function helloWithArgument(string $message): Response
-    {
-        return $this->render('message.html.twig', [
-            'message' => $message,
-        ]);
-    }
-
-    /**
-     * @Route("/test/{message}")
-    */
-    public function printMyName(string $message): Response
-    {
-        return $this->render('printName.html.twig', [
-            'message' => $message,
-            'name' => "Name: ",
-        ]);
-    }
-
     public function showStartGame(): Response
     {
         $session = new Session();
