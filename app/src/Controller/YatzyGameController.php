@@ -9,14 +9,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-use alos17\Dice\DiceHand;
-use alos17\Yatzy\Yatzy;
+use App\Dice\DiceHand;
+use App\Yatzy\Yatzy;
 
-use function Mos\Functions\{
-    destroySession,
-    renderView,
-    url
-};
+//use function App\Functions\url;
 
 class YatzyGameController extends AbstractController
 {
@@ -32,7 +28,6 @@ class YatzyGameController extends AbstractController
 
         return $this->render('yatzystart.html.twig', [
             "header" => "Yatzy game",
-            "action" => url("/yatzy"),
             "message" => "This is the game Yatzy!",
         ]);
     }
@@ -49,7 +44,6 @@ class YatzyGameController extends AbstractController
 
         return $this->render('yatzy.html.twig', [
             "header" => "Yatzy game",
-            "action" => url("/yatzy"),
             "message" => "This is the game Yatzy!",
             "totalSum" => $session->get('totalSum'),
             "firstToss" => $session->get('firstToss'),

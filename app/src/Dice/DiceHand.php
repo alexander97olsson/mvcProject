@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace alos17\Dice;
+namespace App\Dice;
 
 class DiceHand
 {

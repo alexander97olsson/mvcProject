@@ -1,0 +1,11 @@
+{{ include('/header.html.twig') }}
+<h1>{{ header }}</h1>
+
+<p>{{ message }}</p>
+
+
+<p class="dice-utf8">
+    {% for value in alldices %}
+        <i class="{{ value }}"></i>
+    {% endfor %}
+</p>

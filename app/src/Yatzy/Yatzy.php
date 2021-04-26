@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace alos17\Yatzy;
+namespace App\Yatzy;
 
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use alos17\Dice\DiceHand;
+use App\Dice\DiceHand;
 
 class Yatzy
 {
