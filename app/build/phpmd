@@ -1,4 +1,3 @@
-C:\cygwin64\home\alexa\dbwebb-kurser\mvc\me\framework\app\src\Controller\DiceGameController.php:25	Avoid unused local variables such as '$numberArray'.
 C:\cygwin64\home\alexa\dbwebb-kurser\mvc\me\framework\app\src\Kernel.php:14	Avoid assigning values to variables in if clauses and the like (line '22', column '27').
 C:\cygwin64\home\alexa\dbwebb-kurser\mvc\me\framework\app\src\Kernel.php:27	Avoid assigning values to variables in if clauses and the like (line '34', column '27').
 C:\cygwin64\home\alexa\dbwebb-kurser\mvc\me\framework\app\src\Yatzy\Yatzy.php:38	The method showGame uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.

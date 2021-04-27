@@ -2,6 +2,11 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
+dicetosser:
+    path: /dicetosser
+    controller: App\Controller\DiceGameController::tossDice
+    methods: [GET]
+
 yatzystart:
     path: /yatzystart
     controller: App\Controller\YatzyGameController::showStartGame
@@ -11,9 +16,3 @@ yatzy:
     path: /yatzy
     controller: App\Controller\YatzyGameController::showGame
     methods: [POST]
-
-dicetosser:
-    path: /dicetosser
-    controller: App\Controller\DiceGameController::tossDice
-    methods: [GET]
-
