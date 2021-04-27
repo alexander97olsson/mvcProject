@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace alos17\Dice;
+namespace App\Dice;
 
 use PHPUnit\Framework\TestCase;
 
@@ -17,7 +17,7 @@ class DiceGraphicTest extends TestCase
     public function testDiceGraphicObject()
     {
         $diceGraphic = new DiceGraphic();
-        $this->assertInstanceOf("\alos17\Dice\DiceGraphic", $diceGraphic);
+        $this->assertInstanceOf("\App\Dice\DiceGraphic", $diceGraphic);
     }
 
     public function testGraphic()

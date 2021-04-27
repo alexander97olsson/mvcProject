@@ -2,14 +2,6 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
-hello:
-    path: /hello-world
-    controller: App\Controller\HelloWorldController::helloMessage
-
-hello-view:
-    path: /hello-world-view
-    controller: App\Controller\HelloWorldController::helloMessageView
-
 yatzystart:
     path: /yatzystart
     controller: App\Controller\YatzyGameController::showStartGame
@@ -19,11 +11,6 @@ yatzy:
     path: /yatzy
     controller: App\Controller\YatzyGameController::showGame
     methods: [POST]
-
-dicestart:
-    path: /dicestart
-    controller: App\Controller\DiceGameController::gameChoice
-    methods: [GET]
 
 dicetosser:
     path: /dicetosser

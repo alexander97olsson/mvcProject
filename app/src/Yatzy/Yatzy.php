@@ -13,19 +13,19 @@ class Yatzy
     public function __construct($sessionValue)
     {
         $session = $sessionValue;
-        
+
         $session->set('yatzyObjekt', new DiceHand(5));
         $session->set('counter', 0);
         $session->set('gameState', 1);
         $session->set('score', 0);
         $session->set('round', 1);
     }
-    
+
     public function showGame($sessionValue, $requestValue)
     {
         $session = $sessionValue;
         $request = $requestValue;
-  
+
         $diceObject = $session->get('yatzyObjekt');
         if ($request->request->has("Toss")) {
             if ($request->request->has("dicesArray")) {

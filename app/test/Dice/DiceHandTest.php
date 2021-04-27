@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace alos17\Dice;
+namespace App\Dice;
 
 use PHPUnit\Framework\TestCase;
 
@@ -17,7 +17,7 @@ class DiceHandTest extends TestCase
     public function testDiceHandObject()
     {
         $dicehand = new DiceHand();
-        $this->assertInstanceOf("\alos17\Dice\DiceHand", $dicehand);
+        $this->assertInstanceOf("\App\Dice\DiceHand", $dicehand);
     }
 
     public function testDiceHandTossAll()

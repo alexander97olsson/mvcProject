@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace alos17\Dice;
+namespace App\Dice;
 
 use PHPUnit\Framework\TestCase;
 
@@ -17,7 +17,7 @@ class DiceTest extends TestCase
     public function testDiceObject()
     {
         $dice = new Dice();
-        $this->assertInstanceOf("\alos17\Dice\Dice", $dice);
+        $this->assertInstanceOf("\App\Dice\Dice", $dice);
     }
     /**
      * Test om man får något värde vid kast.
