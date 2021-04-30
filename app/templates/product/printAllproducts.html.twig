@@ -1,0 +1,6 @@
+{{ include('./header.html.twig') }}
+<p class="dice-utf8">
+    {% for product in products %}
+        <i>{{ product.getName() }}</i><br>
+    {% endfor %}
+</p>

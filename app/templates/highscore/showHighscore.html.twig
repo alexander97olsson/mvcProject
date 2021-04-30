@@ -1,0 +1,18 @@
+{{ include('./header.html.twig') }}
+<h1>Highscore page</h1>
+<p class="dice-utf8">
+    <table>
+        <tr>
+            <th>Plats</th>
+            <th>Namn</th>
+            <th>Total poäng</th>
+        </tr>
+        {% for eachscore in highscore %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ eachscore.getName() }}</td>
+                <td>{{ eachscore.getScore() }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</p>
