@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1619525991">
-  <project timestamp="1619525991">
-    <file name="C:\cygwin64\home\alexa\dbwebb-kurser\mvc\me\framework\app\src\Dice\Dice.php">
+<coverage generated="1620029946">
+  <project timestamp="1620029946">
+    <file name="C:\cygwin64\home\alexa\dbwebb-kurser\mvc\me\orm\app\src\Dice\Dice.php">
       <class name="App\Dice\Dice" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="11" coveredelements="11"/>
       </class>
@@ -18,7 +18,7 @@
       <line num="30" type="stmt" count="4"/>
       <metrics loc="32" ncloc="32" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="11" coveredelements="11"/>
     </file>
-    <file name="C:\cygwin64\home\alexa\dbwebb-kurser\mvc\me\framework\app\src\Dice\DiceGraphic.php">
+    <file name="C:\cygwin64\home\alexa\dbwebb-kurser\mvc\me\orm\app\src\Dice\DiceGraphic.php">
       <class name="App\Dice\DiceGraphic" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
       </class>
@@ -29,7 +29,7 @@
       <line num="16" type="stmt" count="2"/>
       <metrics loc="18" ncloc="18" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
     </file>
-    <file name="C:\cygwin64\home\alexa\dbwebb-kurser\mvc\me\framework\app\src\Dice\DiceHand.php">
+    <file name="C:\cygwin64\home\alexa\dbwebb-kurser\mvc\me\orm\app\src\Dice\DiceHand.php">
       <class name="App\Dice\DiceHand" namespace="global">
         <metrics complexity="12" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="22" elements="29" coveredelements="29"/>
       </class>

@@ -28,19 +28,19 @@ class BookController extends AbstractController
         //  createProduct(EntityManagerInterface $entityManager)
 
         $entityManager = $this->getDoctrine()->getManager();
-    
+
         $book = new Book();
         $book->setTitle("Borta med vinden");
         $book->setAuthor("Margareth Mitchell");
         $book->setISBN("96783-8566");
         $book->setPicture("https://www.listor.se/wp-content/uploads/2014/01/bortamedvinden.jpg");
-    
+
         // tell Doctrine you want to (eventually) save the Product (no queries yet)
         $entityManager->persist($book);
-    
+
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
-    
+
         return new Response('Saved new product with id '.$book->getId());
     }*/
 
@@ -48,7 +48,7 @@ class BookController extends AbstractController
      * @Route("/allbooks", name="find_all_books")
      */
     public function findAllBooks(
-            EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager
     ): Response {
         $books = $entityManager
             ->getRepository(Book::class)

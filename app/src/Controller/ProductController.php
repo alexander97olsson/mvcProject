@@ -34,24 +34,24 @@ class ProductController extends AbstractController
         }
 
         $entityManager = $this->getDoctrine()->getManager();
-    
+
         $product = new Product();
         $product->setName($name . rand(1, 9));
         $product->setValue(rand(100, 999));
-    
+
         // tell Doctrine you want to (eventually) save the Product (no queries yet)
         $entityManager->persist($product);
-    
+
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
-    
-        return new Response('Saved new product with id '.$product->getId());
+
+        return new Response('Saved new product with id ' . $product->getId());
     }
     /**
      * @Route("/product/all", name="find_all_product")
      */
     public function findAllProduct(
-            EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager
     ): Response {
         $products = $entityManager
             ->getRepository(Product::class)
@@ -61,15 +61,4 @@ class ProductController extends AbstractController
             "products" => $products,
         ]);
     }
-    /**
-     * @Route("/product/{id}", name="product_find_by_id")
-     */
-    public function findByIdProduct(int $id): Response {
-        $product = $this->getDoctrine()
-            ->getRepository(Product::class)
-            ->findById($id);
-
-        return $this->json($product);
-    }
 }
-

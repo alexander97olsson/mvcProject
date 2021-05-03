@@ -31,22 +31,23 @@ class HighscoreController extends AbstractController
         //  createProduct(EntityManagerInterface $entityManager)
         $session = $this->get('session');
 
+        $name = "temp";
         if ($request->request->has("saveScore")) {
             $name = $request->request->get("name");
         }
 
         $entityManager = $this->getDoctrine()->getManager();
-    
+
         $highscore = new Highscore();
         $highscore->setName($name);
         $highscore->setScore($session->get('score'));
-    
+
         // tell Doctrine you want to (eventually) save the Product (no queries yet)
         $entityManager->persist($highscore);
-    
+
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
-    
+
         return $this->render('message.html.twig', [
             'message' => "Hejsan detta är min index sida och även test",
         ]);
@@ -55,15 +56,15 @@ class HighscoreController extends AbstractController
      * @Route("/allscore", name="show_all_Highscore")
      */
     public function showAllHighscore(
-            EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager
     ): Response {
         $highscore = $entityManager
             ->getRepository(Highscore::class)
             ->findAll();
-        
-        $scoes = array(); 
-        foreach ($highscore as $my_object) {
-            $scoes[] = $my_object->score;
+
+        $scoes = array();
+        foreach ($highscore as $myObject) {
+            $scoes[] = $myObject->score;
         }
 
         array_multisort($scoes, SORT_DESC, $highscore);
