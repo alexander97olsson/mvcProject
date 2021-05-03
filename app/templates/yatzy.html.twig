@@ -26,9 +26,9 @@
     <p>Game is over!</p>
     <p>Total score: {{ score }}</p>
     <h3>Save you score!</h3>
-    <form action="highscore/create" method="post">
-        <label>Give a name: </label>
+    <form action="create" method="post">
+        <label>Namn: </label>
         <input type="text" name="name">
-        <input name="saveScore" type="submit" value="saveScore">
+        <input name="saveScore" type="submit" value="Spara">
     </form>
 {% endif %}

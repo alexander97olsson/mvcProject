@@ -22,7 +22,7 @@ class HighscoreController extends AbstractController
     }
 
         /**
-     * @Route("/highscore/create", name="create_score", methods={"POST"})
+     * @Route("/create", name="create_score", methods={"POST"})
      */
     public function createScore(Request $request): Response
     {
