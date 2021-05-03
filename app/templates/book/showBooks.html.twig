@@ -1,0 +1,20 @@
+{{ include('./header.html.twig') }}
+<h1>Alla böcker</h1>
+<p class="dice-utf8">
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Författare</th>
+            <th>ISBN</th>
+            <th>Bild länk</th>
+        </tr>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.getTitle() }}</td>
+                <td>{{ book.getAuthor() }}</td>
+                <td>{{ book.getISBN() }}</td>
+                <td><a href="{{ book.getPicture() }}">Bild</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</p>
