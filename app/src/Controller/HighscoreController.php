@@ -47,12 +47,12 @@ class HighscoreController extends AbstractController
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
     
-        return $this->render('highscore/index.html.twig', [
-            'controller_name' => 'HighscoreController',
+        return $this->render('message.html.twig', [
+            'message' => "Hejsan detta är min index sida och även test",
         ]);
     }
     /**
-     * @Route("/highscore/all", name="show_all_Highscore")
+     * @Route("/allscore", name="show_all_Highscore")
      */
     public function showAllHighscore(
             EntityManagerInterface $entityManager
@@ -60,6 +60,13 @@ class HighscoreController extends AbstractController
         $highscore = $entityManager
             ->getRepository(Highscore::class)
             ->findAll();
+        
+        $scoes = array(); 
+        foreach ($highscore as $my_object) {
+            $scoes[] = $my_object->score;
+        }
+
+        array_multisort($scoes, SORT_DESC, $highscore);
 
         return $this->render('highscore/showHighscore.html.twig', [
             "highscore" => $highscore,

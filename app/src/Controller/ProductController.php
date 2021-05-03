@@ -60,7 +60,6 @@ class ProductController extends AbstractController
         return $this->render('product/printAllproducts.html.twig', [
             "products" => $products,
         ]);
-        return $this->json($products[3]->getName());
     }
     /**
      * @Route("/product/{id}", name="product_find_by_id")
