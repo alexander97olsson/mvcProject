@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1620209823">
+  <project timestamp="1620209823">
+    <file name="C:\cygwin64\home\alexa\dbwebb-kurser\mvc\me\ci\src\Dice\Dice.php">
+      <class name="App\Dice\Dice" namespace="global">
+        <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="11" coveredelements="11"/>
+      </class>
+      <line num="12" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="11"/>
+      <line num="14" type="stmt" count="11"/>
+      <line num="15" type="stmt" count="11"/>
+      <line num="17" type="method" name="toss" visibility="public" complexity="1" crap="1" count="8"/>
+      <line num="19" type="stmt" count="8"/>
+      <line num="20" type="stmt" count="8"/>
+      <line num="21" type="stmt" count="8"/>
+      <line num="23" type="method" name="getLastToss" visibility="public" complexity="1" crap="1" count="6"/>
+      <line num="25" type="stmt" count="6"/>
+      <line num="28" type="method" name="setLastToss" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="30" type="stmt" count="4"/>
+      <metrics loc="32" ncloc="32" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="11" coveredelements="11"/>
+    </file>
+    <file name="C:\cygwin64\home\alexa\dbwebb-kurser\mvc\me\ci\src\Dice\DiceGraphic.php">
+      <class name="App\Dice\DiceGraphic" namespace="global">
+        <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
+      </class>
+      <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="8"/>
+      <line num="11" type="stmt" count="8"/>
+      <line num="12" type="stmt" count="8"/>
+      <line num="14" type="method" name="graphics" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="16" type="stmt" count="2"/>
+      <metrics loc="18" ncloc="18" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
+    </file>
+    <file name="C:\cygwin64\home\alexa\dbwebb-kurser\mvc\me\ci\src\Dice\DiceHand.php">
+      <class name="App\Dice\DiceHand" namespace="global">
+        <metrics complexity="12" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="22" elements="29" coveredelements="29"/>
+      </class>
+      <line num="13" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="6"/>
+      <line num="15" type="stmt" count="6"/>
+      <line num="16" type="stmt" count="6"/>
+      <line num="18" type="stmt" count="6"/>
+      <line num="20" type="method" name="tossAll" visibility="public" complexity="2" crap="2" count="4"/>
+      <line num="22" type="stmt" count="4"/>
+      <line num="23" type="stmt" count="4"/>
+      <line num="24" type="stmt" count="4"/>
+      <line num="26" type="stmt" count="4"/>
+      <line num="28" type="method" name="tossSpecific" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="30" type="stmt" count="1"/>
+      <line num="31" type="stmt" count="1"/>
+      <line num="33" type="method" name="getAllDices" visibility="public" complexity="2" crap="2" count="4"/>
+      <line num="35" type="stmt" count="4"/>
+      <line num="36" type="stmt" count="4"/>
+      <line num="37" type="stmt" count="4"/>
+      <line num="39" type="stmt" count="4"/>
+      <line num="42" type="method" name="getAllDicesGraphic" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="44" type="stmt" count="1"/>
+      <line num="45" type="stmt" count="1"/>
+      <line num="46" type="stmt" count="1"/>
+      <line num="48" type="stmt" count="1"/>
+      <line num="51" type="method" name="getSumHand" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="53" type="stmt" count="1"/>
+      <line num="56" type="method" name="setAllDices" visibility="public" complexity="2" crap="2" count="2"/>
+      <line num="58" type="stmt" count="2"/>
+      <line num="59" type="stmt" count="2"/>
+      <line num="60" type="stmt" count="2"/>
+      <line num="62" type="stmt" count="2"/>
+      <metrics loc="63" ncloc="63" classes="1" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="22" elements="29" coveredelements="29"/>
+    </file>
+    <metrics files="3" loc="113" ncloc="113" classes="3" methods="13" coveredmethods="13" conditionals="0" coveredconditionals="0" statements="32" coveredstatements="32" elements="45" coveredelements="45"/>
+  </project>
+</coverage>
