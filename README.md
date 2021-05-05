@@ -1,1 +1,1 @@
-https://travis-ci.com/alexander97olsson/mvcFrameworkProject.svg?branch=main
+[![Build Status](https://travis-ci.com/alexander97olsson/mvcFrameworkProject.svg?branch=main)](https://travis-ci.com/alexander97olsson/mvcFrameworkProject)
