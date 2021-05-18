@@ -20,10 +20,11 @@ class YatzyGameController extends AbstractController
         $session = new Session();
         $session->start();
         $session->invalidate();
-
+        $today = date("H:i:s"); 
         $session->set('counter', 0);
         $session->set('score', 0);
         $session->set('round', 1);
+        $session->set('time', $today);
 
         return $this->render('yatzystart.html.twig', [
             "header" => "Yatzy game",
@@ -37,9 +38,15 @@ class YatzyGameController extends AbstractController
         if ($session->has('yatzyGame') == false) {
             $session->set("yatzyGame", new Yatzy($session));
         }
-
         $game = $session->get('yatzyGame');
         $game->showGame($session, $request);
+        
+
+        $startTime = $session->get('time');
+        $today = date("H:i:s"); 
+
+        $timeElapsed = strtotime($today) - strtotime($startTime);
+        $session->set('timeElapsed', $timeElapsed);
 
         return $this->render('yatzy.html.twig', [
             "header" => "Yatzy game",
@@ -51,6 +58,7 @@ class YatzyGameController extends AbstractController
             "round" => $session->get('round'),
             "counter" => $session->get('counter'),
             "score" => $session->get('score'),
+            "time" => $session->get('timeElapsed'),
         ]);
     }
 }

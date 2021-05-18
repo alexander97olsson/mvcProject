@@ -27,6 +27,11 @@ class Highscore
      */
     public $score;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $time;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Highscore
     public function setScore(int $score): self
     {
         $this->score = $score;
+
+        return $this;
+    }
+
+    public function getTime(): ?string
+    {
+        return $this->time;
+    }
+
+    public function setTime(?string $time): self
+    {
+        $this->time = $time;
 
         return $this;
     }

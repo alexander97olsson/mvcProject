@@ -6,12 +6,14 @@
             <th>Plats</th>
             <th>Namn</th>
             <th>Total poäng</th>
+            <th>Total tid i sekunder</th>
         </tr>
         {% for eachscore in highscore %}
             <tr>
                 <td>{{ loop.index }}</td>
                 <td>{{ eachscore.getName() }}</td>
                 <td>{{ eachscore.getScore() }}</td>
+                <td>{{ eachscore.getTime() }}</td>
             </tr>
         {% endfor %}
     </table>
