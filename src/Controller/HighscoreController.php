@@ -42,6 +42,12 @@ class HighscoreController extends AbstractController
         $highscore->setName($name);
         $highscore->setScore($session->get('score'));
 
+        $startTime = $session->get('time');
+        $today = date("H:i:s"); 
+
+        $timeElapsed = strtotime($today) - strtotime($startTime);
+        $highscore->setTime(strval($timeElapsed));
+
         // tell Doctrine you want to (eventually) save the Product (no queries yet)
         $entityManager->persist($highscore);
 

@@ -20,10 +20,11 @@ class YatzyGameController extends AbstractController
         $session = new Session();
         $session->start();
         $session->invalidate();
-        $today = date("H:i:s"); 
         $session->set('counter', 0);
         $session->set('score', 0);
         $session->set('round', 1);
+
+        $today = date("H:i:s");
         $session->set('time', $today);
 
         return $this->render('yatzystart.html.twig', [
