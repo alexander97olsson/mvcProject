@@ -121,4 +121,25 @@ class HighscoreController extends AbstractController
             "highscore" => $highscore,
         ]);
     }
+        /**
+     * @Route("/orderbyname", name="order_by_name")
+     */
+    public function orderByName(
+        EntityManagerInterface $entityManager
+    ): Response {
+        $highscore = $entityManager
+            ->getRepository(Highscore::class)
+            ->findAll();
+
+        $scoes = array();
+        foreach ($highscore as $myObject) {
+            $scoes[] = $myObject->name;
+        }
+
+        array_multisort($scoes, SORT_ASC, $highscore);
+
+        return $this->render('highscore/showHighscore.html.twig', [
+            "highscore" => $highscore,
+        ]);
+    }
 }

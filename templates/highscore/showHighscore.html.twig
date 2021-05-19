@@ -1,5 +1,7 @@
 {{ include('./header.html.twig') }}
 <h1>Highscore</h1><br>
+<h2>Order by</h2>
+<a class="startgame" href="orderbyname">Name</a>
 <a class="startgame" href="allscore">Highest</a>
 <a class="startgame" href="orderbylowest">Lowest</a>
 <a class="startgame" href="orderbytime">Time</a><br><br><br>
@@ -9,7 +11,7 @@
             <th>Plats</th>
             <th>Namn</th>
             <th>Total poäng</th>
-            <th>Total tid i sekunder</th>
+            <th>Total tid i sekunder </th>
         </tr>
         {% for eachscore in highscore %}
             <tr>
