@@ -60,6 +60,14 @@ class YatzyGameController extends AbstractController
             "counter" => $session->get('counter'),
             "score" => $session->get('score'),
             "time" => $session->get('timeElapsed'),
+            "par" => $session->get('par'),
+            "triss" => $session->get('triss'),
+            "fyrtal" => $session->get('fyrtal'),
+            "litenstege" => $session->get('litenstege'),
+            "storstege" => $session->get('storstege'),
+            "kak" => $session->get('kak'),
+            "chans" => $session->get('chans'),
+            "yatzyPoint" => $session->get('yatzyPoint'),
         ]);
     }
 }

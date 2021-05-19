@@ -1,7 +1,11 @@
 {{ include('/header.html.twig') }}
 <h1>{{ header }}</h1>
-<p>{{ message }}</p>
+<p> Detta är spelet Yatzy. Det fungerar som vanlig Yatzy, för varje
+    runda sparas ditt resultat. Glöm inte i slutet att spara ditt resultat
+    med ditt namn för att kunna tävla på highscore. Du startar spelet genom att trycka på "Start game"</p><br>
 
 <form action="yatzy" method="post">
-    <input type="submit" value="Start game">
+    <input class="startgame" type="submit" value="Start game">
 </form>
+
+{{ include('/footer.html.twig') }}

@@ -19,59 +19,67 @@ class Yatzy
         $session->set('gameState', 1);
         $session->set('score', 0);
         $session->set('round', 1);
+        $session->set('active', 0);
+
+        //taken variables
+        $session->set('par', 0);
+        $session->set('triss', 0);
+        $session->set('fyrtal', 0);
+        $session->set('litenstege', 0);
+        $session->set('storstege', 0);
+        $session->set('kak', 0);
+        $session->set('chans', 0);
+        $session->set('yatzyPoint', 0);
     }
 
     public function showGame($sessionValue, $requestValue)
     {
         $session = $sessionValue;
         $request = $requestValue;
-
         $diceObject = $session->get('yatzyObjekt');
-        if ($request->request->has("Toss")) {
-            if ($request->request->has("dicesArray")) {
-                $dicesArray = $request->request->get("dicesArray");
-                $diceObject->setAllDices($session->get('numberOfValues'));
-                $countArray = count($dicesArray);
-                for ($i = 0; $i < $countArray; $i++) {
-                    $diceObject->tossSpecific(intval($dicesArray[$i]));
-                }
-            } else {
-                $diceObject->setAllDices($session->get('numberOfValues'));
-            }
-            $counter = $session->get('counter');
-            $counter = $counter + 1;
-            $session->set('counter', $counter);
-        } else {
-            $diceObject->tossAll();
-        }
 
         $numberArray = $diceObject->getAllDices();
-        $graphicsArray = $diceObject->getAllDicesGraphic();
-        $totalSum = $diceObject->getSumHand();
+        if ($session->get('counter') == 2) {
+            if ($request->request->has("chooseRadio")) {
+                $chooseRadioValue = $request->request->get("chooseRadio");
+                if ($chooseRadioValue == "par" && $session->get('par') == 0) {
+                    $this->ofAKind($numberArray, $session, 1);
+                    $session->set('par', 1);
+                }
+                if ($chooseRadioValue == "triss" && $session->get('triss') == 0) {
+                    $this->ofAKind($numberArray, $session, 2);
+                    $session->set('triss', 1);
+                }
+                if ($chooseRadioValue == "fyrtal" && $session->get('fyrtal') == 0) {
+                    $this->ofAKind($numberArray, $session, 3);
+                    $session->set('fyrtal', 1);
+                }
+                if ($chooseRadioValue == "litenstege" && $session->get('litenstege') == 0) {
+                    $this->litenStege($numberArray, $session);
+                    $session->set('litenstege', 1);
+                }
+                if ($chooseRadioValue == "storstege" && $session->get('storstege') == 0) {
+                    $this->storStege($numberArray, $session);
+                    $session->set('storstege', 1);
+                }
+                if ($chooseRadioValue == "kak" && $session->get('kak') == 0) {
+                    $this->kak($numberArray, $session);
+                    $session->set('kak', 1);
+                }
+                if ($chooseRadioValue == "chans" && $session->get('chans') == 0) {
+                    $this->chans($numberArray, $session);
+                    $session->set('chans', 1);
+                }
+                if ($chooseRadioValue == "yatzyPoint" && $session->get('yatzyPoint') == 0) {
+                    $this->yatzyPoint($numberArray, $session);
+                    $session->set('yatzyPoint', 1);
+                }
+                $session->set('counter', 0);
+                $session->set('active', 0);
+            } else {
+                $this->calcScore($this->getAllScores($session->get('gameState'), $session), $session);
+            }
 
-        $session->set('totalSum', $totalSum);
-        $session->set('firstToss', $diceObject->getSumHand());
-        $session->set('alldices', $graphicsArray);
-        $session->set('text', $numberArray);
-        $session->set('numberOfValues', $numberArray);
-
-        if ($session->get('counter') == 3) {
-            if ($session->get('round') == 1) {
-                $this->kak($numberArray, $session);
-                $session->set('counter', 0);
-            }
-            if ($session->get('round') == 2) {
-                $this->kak($numberArray, $session);
-                $session->set('counter', 0);
-            }
-            if ($session->get('round') == 3) {
-                $this->kak($numberArray, $session);
-                $session->set('counter', 0);
-            }
-            if ($session->get('round') == 4) {
-                $this->storStege($numberArray, $session);
-                $session->set('counter', 0);
-            }
             $round = $session->get('round');
             $round = $round + 1;
             $session->set('round', $round);
@@ -80,8 +88,42 @@ class Yatzy
                 $score = $score + 50;
                 $session->set('score', $score);
             }
-            //$this->calcScore($this->getAllScores($session->get('gameState'), $session), $session);
         }
+
+        if ($session->get('active') == 0) {
+            $diceObject = $session->get('yatzyObjekt');
+            if ($request->request->has("Toss")) {
+                if ($request->request->has("dicesArray")) {
+                    $dicesArray = $request->request->get("dicesArray");
+                    $diceObject->setAllDices($session->get('numberOfValues'));
+                    $countArray = count($dicesArray);
+                    for ($i = 0; $i < $countArray; $i++) {
+                        $diceObject->tossSpecific(intval($dicesArray[$i]));
+                    }
+                } else {
+                    $diceObject->setAllDices($session->get('numberOfValues'));
+                }
+                $counter = $session->get('counter');
+                $counter = $counter + 1;
+                $session->set('counter', $counter);
+            } else {
+                $diceObject->tossAll();
+            }
+    
+            $numberArray = $diceObject->getAllDices();
+            $graphicsArray = $diceObject->getAllDicesGraphic();
+            $totalSum = $diceObject->getSumHand();
+    
+            $session->set('totalSum', $totalSum);
+            $session->set('firstToss', $diceObject->getSumHand());
+            $session->set('alldices', $graphicsArray);
+            $session->set('text', $numberArray);
+            $session->set('numberOfValues', $numberArray);
+            if($session->get('counter') >= 3) {
+                $session->set('active', 1);
+            }
+        }
+
     }
 
     public function getAllScores(int $number, $sessionValue)

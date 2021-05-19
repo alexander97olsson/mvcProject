@@ -16,4 +16,3 @@ yatzy:
     path: /yatzy
     controller: App\Controller\YatzyGameController::showGame
     methods: [POST]
-    

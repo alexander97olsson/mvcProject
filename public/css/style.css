@@ -1,19 +1,24 @@
 body {
     overflow-y: scroll;
-    width: 800px;
     margin: 8px auto;
-    padding-left: 1em;
-    border-left: 1px solid #ccc;
+    background-color: rgb(226, 226, 226);
 }
 
 main {
-    min-height: 20em;
+    min-height: 40em;
+    text-align: center;
+    height: 100%;
 }
 
 footer {
     border-top: 1px solid #ccc;
     min-height: 4em;
     text-align: center;
+}
+
+p {
+    width: 800px;
+    margin: 0 auto;
 }
 
 .dice-utf8 .dice-1::after { content: "\2680"; }
@@ -25,20 +30,129 @@ footer {
 
 .dice-utf8 {
     font-size: 32px;
+    padding: 15px;
+    width: 175px;
+    background-color: rgb(214, 214, 214);
+    border-radius: 8px;
 }
 
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 800px;
+    margin: 0 auto;
 }
 
 td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #000000;
     text-align: left;
     padding: 8px;
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #f5f5f5;
 }
+
+header {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: rgb(255, 255, 255);
+}
+
+nav {
+    text-align: center;
+}
+
+.footer-basic {
+    background-color:#5f495f;
+    color:#4b4c4d;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.footer-basic ul {
+    padding:0;
+    list-style:none;
+    text-align:center;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:0;
+}
+
+.footer-basic li {
+    padding:0 10px;
+}
+
+.footer-basic ul a {
+    color:inherit;
+    text-decoration:none;
+    opacity:0.8;
+}
+
+.footer-basic ul a:hover {
+    opacity:1;
+}
+
+
+.footer-basic .copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color:#aaa;
+    margin-bottom:0;
+}
+
+.header-text {
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color:rgb(151, 118, 69);
+    width: 250px;
+}
+
+a.ahb-bottom
+{
+    position: relative;
+}
+
+a.ahb-bottom:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0px;
+    left: 0;
+    background-color: rgb(151, 118, 69);
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+}
+
+a.ahb-bottom:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.startgame {
+    background-color: #969696;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.startgame:hover {
+    background-color: #5e5e5e;
+}
+  

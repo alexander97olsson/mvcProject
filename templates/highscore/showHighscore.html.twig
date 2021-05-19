@@ -1,6 +1,6 @@
 {{ include('./header.html.twig') }}
-<h1>Highscore page</h1>
-<p class="dice-utf8">
+<h1>Highscore</h1>
+<p>
     <table>
         <tr>
             <th>Plats</th>
@@ -18,3 +18,9 @@
         {% endfor %}
     </table>
 </p>
+<a href="otherorder">test</a>
+<form action="allscoretest" method="post">
+    <input class="startgame" type="submit" value="Other order" name="sekunder">
+</form>
+
+{{ include('/footer.html.twig') }}

@@ -1,18 +1,21 @@
 {{ include('/header.html.twig') }}
 <h1>{{ header }}</h1>
 
-<p>{{ message }}</p>
-<p>{{ time }}</p>
+<p>{{ message }}</p><br>
 
-{% if round < 3 %}
+{% if round < 15 %}
     <p>Total score: {{ score }}</p>
-    <p>You have to save: {{ round }}</p>
+    {% if round < 7 %}
+        <p>You have to save: {{ round }}</p><br>
+    {% else %}
+        <p>You have to save: What you choose!</p><br>
+    {% endif %}
     <p class="dice-utf8">
         {% for value in alldices %}
             <i class="{{ value }}"></i>
         {% endfor %}
-    </p>
-    {% if counter != 6 %}
+    </p><br>
+    {% if counter != 6 and round < 7 %}
         <form action="yatzy" method="post">
             <input type="checkbox" name="dicesArray[]" value="0" />1
             <input type="checkbox" name="dicesArray[]" value="1" />2
@@ -20,8 +23,50 @@
             <input type="checkbox" name="dicesArray[]" value="3" />4
             <input type="checkbox" name="dicesArray[]" value="4" />5<br />
             <label>Choose dices to toss again!</label><br /><br />
-            <input name="Toss" type="submit" value="Toss">
+            <input class="startgame" name="Toss" type="submit" value="Toss">
         </form>
+    {% endif %}
+    {% if round >= 7 %}
+        {% if counter != 2 %}
+            <form action="yatzy" method="post">
+            <input type="checkbox" name="dicesArray[]" value="0" />1
+            <input type="checkbox" name="dicesArray[]" value="1" />2
+            <input type="checkbox" name="dicesArray[]" value="2" />3
+            <input type="checkbox" name="dicesArray[]" value="3" />4
+            <input type="checkbox" name="dicesArray[]" value="4" />5<br />
+            <label>Choose dices to toss again!</label><br /><br />
+            <input class="startgame" name="Toss" type="submit" value="Toss">
+        </form>
+        {% else %}
+            <form action="yatzy" method="post">
+            <label>Choose which one you play!</label><br /><br />
+            {% if par == 0 %}
+                <input type="radio" name="chooseRadio" value="par" required/>Par
+            {% endif %}
+            {% if triss == 0 %}
+                <input type="radio" name="chooseRadio" value="triss" required/>Triss
+            {% endif %}
+            {% if fyrtal == 0 %}
+                <input type="radio" name="chooseRadio" value="fyrtal" required/>Fyrtal
+            {% endif %}
+            {% if litenstege == 0 %}
+                <input type="radio" name="chooseRadio" value="litenstege" required/>Liten stege
+            {% endif %}
+            {% if storstege == 0 %}
+                <input type="radio" name="chooseRadio" value="storstege" required/>Stor stege
+            {% endif %}
+            {% if kak == 0 %}
+                <input type="radio" name="chooseRadio" value="kak" required/>Kåk
+            {% endif %}
+            {% if chans == 0 %}
+                <input type="radio" name="chooseRadio" value="chans" required/>Chans
+            {% endif %}
+            {% if yatzyPoint == 0 %}
+                <input type="radio" name="chooseRadio" value="yatzyPoint" required/>Yatzy
+            {% endif %}
+            <br><input class="startgame" name="choose" type="submit" value="Välj">
+        </form>
+        {% endif %}
     {% endif %}
 {% else %}
     <p>Game is over!</p>
@@ -30,6 +75,8 @@
     <form action="create" method="post">
         <label>Namn: </label>
         <input type="text" name="name">
-        <input name="saveScore" type="submit" value="Spara">
+        <input class="startgame" name="saveScore" type="submit" value="Spara">
     </form>
 {% endif %}
+
+{{ include('/footer.html.twig') }}
