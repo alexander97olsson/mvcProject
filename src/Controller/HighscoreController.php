@@ -79,10 +79,31 @@ class HighscoreController extends AbstractController
             "highscore" => $highscore,
         ]);
     }
-        /**
-     * @Route("/otherorder", name="in_other_order")
+    /**
+     * @Route("/orderbytime", name="order_by_Time")
      */
-    public function inOtherOrder(
+    public function orderByTime(
+        EntityManagerInterface $entityManager
+    ): Response {
+        $highscore = $entityManager
+            ->getRepository(Highscore::class)
+            ->findAll();
+
+        $scoes = array();
+        foreach ($highscore as $myObject) {
+            $scoes[] = $myObject->time;
+        }
+
+        array_multisort($scoes, SORT_DESC, $highscore);
+
+        return $this->render('highscore/showHighscore.html.twig', [
+            "highscore" => $highscore,
+        ]);
+    }
+    /**
+     * @Route("/orderbylowest", name="order_by_lowest")
+     */
+    public function orderByLowest(
         EntityManagerInterface $entityManager
     ): Response {
         $highscore = $entityManager

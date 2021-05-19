@@ -1,5 +1,8 @@
 {{ include('./header.html.twig') }}
-<h1>Highscore</h1>
+<h1>Highscore</h1><br>
+<a class="startgame" href="allscore">Highest</a>
+<a class="startgame" href="orderbylowest">Lowest</a>
+<a class="startgame" href="orderbytime">Time</a><br><br><br>
 <p>
     <table>
         <tr>
@@ -18,9 +21,5 @@
         {% endfor %}
     </table>
 </p>
-<a href="otherorder">test</a>
-<form action="allscoretest" method="post">
-    <input class="startgame" type="submit" value="Other order" name="sekunder">
-</form>
 
 {{ include('/footer.html.twig') }}

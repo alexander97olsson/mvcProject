@@ -30,7 +30,7 @@ class Highscore
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $time;
+    public $time;
 
     public function getId(): ?int
     {
