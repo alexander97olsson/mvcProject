@@ -72,11 +72,11 @@
     <p>Game is over!</p>
     <p>Total score: {{ score }}</p>
     <h3>Save you score!</h3>
-{% endif %}
     <form action="create" method="post">
         <label>Namn: </label>
         <input type="text" name="name">
         <input class="startgame" name="saveScore" type="submit" value="Spara">
     </form>
+{% endif %}
 
 {{ include('/footer.html.twig') }}
