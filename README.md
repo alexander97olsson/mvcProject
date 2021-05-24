@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/alexander97olsson/mvcFrameworkProject.svg?branch=main)](https://travis-ci.com/alexander97olsson/mvcFrameworkProject)
+[![Build Status](https://travis-ci.com/alexander97olsson/mvcProject.svg?branch=main)](https://travis-ci.com/alexander97olsson/mvcProject)
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/alexander97olsson/mvcProject/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/alexander97olsson/mvcProject/?branch=main)
 
