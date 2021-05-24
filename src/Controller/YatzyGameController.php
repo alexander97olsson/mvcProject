@@ -41,10 +41,9 @@ class YatzyGameController extends AbstractController
         }
         $game = $session->get('yatzyGame');
         $game->showGame($session, $request);
-        
 
         $startTime = $session->get('time');
-        $today = date("H:i:s"); 
+        $today = date("H:i:s");
 
         $timeElapsed = strtotime($today) - strtotime($startTime);
         $session->set('timeElapsed', $timeElapsed);

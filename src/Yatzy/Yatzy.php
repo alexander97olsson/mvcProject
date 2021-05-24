@@ -109,21 +109,20 @@ class Yatzy
             } else {
                 $diceObject->tossAll();
             }
-    
+
             $numberArray = $diceObject->getAllDices();
             $graphicsArray = $diceObject->getAllDicesGraphic();
             $totalSum = $diceObject->getSumHand();
-    
+
             $session->set('totalSum', $totalSum);
             $session->set('firstToss', $diceObject->getSumHand());
             $session->set('alldices', $graphicsArray);
             $session->set('text', $numberArray);
             $session->set('numberOfValues', $numberArray);
-            if($session->get('counter') >= 3) {
+            if ($session->get('counter') >= 3) {
                 $session->set('active', 1);
             }
         }
-
     }
 
     public function getAllScores(int $number, $sessionValue)
@@ -174,26 +173,26 @@ class Yatzy
         $countArray = count($allDicesValues);
         $value = 0;
 
-        for ($i = 1; $i <= $countArray + 1; $i++) { 
+        for ($i = 1; $i <= $countArray + 1; $i++) {
             $count = 0;
-            for ($j = 0; $j < $countArray; $j++) { 
+            for ($j = 0; $j < $countArray; $j++) {
                 if ($allDicesValues[$j] == $i) {
                     $count = $count + 1;
                 }
-                
+
                 if ($count > $ofAKindNumber) {
                     $isThreeOfAKind = true;
                     $counts = array_count_values($allDicesValues);
                     arsort($counts);
-                    $top_with_count = array_keys($counts);
-                    $value = $top_with_count[0];
+                    $topWithCount = array_keys($counts);
+                    $value = $topWithCount[0];
                 }
             }
         }
 
         $timesOfCalc = 0;
         if ($isThreeOfAKind == true) {
-            for ($i = 0; $i < $countArray; $i++) { 
+            for ($i = 0; $i < $countArray; $i++) {
                 if ($value == $allDicesValues[$i] && $timesOfCalc < $ofAKindNumber + 1) {
                     $sum = $sum + $allDicesValues[$i];
                     $timesOfCalc = $timesOfCalc + 1;
@@ -204,7 +203,8 @@ class Yatzy
         $this->calcScore($sum, $session);
     }
 
-    public function litenStege($allDicesValues, $session) {
+    public function litenStege($allDicesValues, $session)
+    {
         if ((count(array_unique($allDicesValues)) === 1) == false) {
             if (array_sum($allDicesValues) == 15) {
                 $this->calcScore(15, $session);
@@ -212,7 +212,8 @@ class Yatzy
         }
     }
 
-    public function storStege($allDicesValues, $session) {
+    public function storStege($allDicesValues, $session)
+    {
         if ((count(array_unique($allDicesValues)) === 1) == false) {
             if (array_sum($allDicesValues) == 20) {
                 $this->calcScore(20, $session);
@@ -220,7 +221,8 @@ class Yatzy
         }
     }
 
-    public function kak($allDicesValues, $session) {
+    public function kak($allDicesValues, $session)
+    {
         if ((count(array_unique($allDicesValues)) === 2)) {
             $sum = array_sum($allDicesValues);
             $this->calcScore($sum, $session);

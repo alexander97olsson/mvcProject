@@ -43,7 +43,7 @@ class HighscoreController extends AbstractController
         $highscore->setScore($session->get('score'));
 
         $startTime = $session->get('time');
-        $today = date("H:i:s"); 
+        $today = date("H:i:s");
 
         $timeElapsed = strtotime($today) - strtotime($startTime);
         $highscore->setTime(strval($timeElapsed));
@@ -57,7 +57,7 @@ class HighscoreController extends AbstractController
         $allValues = $entityManager->getRepository(Highscore::class)->findAll();
         $allValuesLength = count($allValues);
         $totalScore = 0;
-        for ($i = 0; $i < $allValuesLength; $i++) { 
+        for ($i = 0; $i < $allValuesLength; $i++) {
             $totalScore = $totalScore + $allValues[$i]->getScore();
         }
         $averageScore = $totalScore / $allValuesLength;
@@ -68,7 +68,7 @@ class HighscoreController extends AbstractController
 
         if (!$product) {
             throw $this->createNotFoundException(
-                'No product found for id '.$id
+                'No product found for id '
             );
         }
 
@@ -110,7 +110,7 @@ class HighscoreController extends AbstractController
             ->getRepository(Highscore::class)
             ->findAll();
 
-        $average =0;
+        $average = 0;
         foreach ($highscore as $myObject) {
             if ($myObject->getId() == 1) {
                 $average = round($myObject->getAverage(), 2);
