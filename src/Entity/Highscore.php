@@ -32,6 +32,11 @@ class Highscore
      */
     public $time;
 
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $average;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Highscore
     public function setTime(?string $time): self
     {
         $this->time = $time;
+
+        return $this;
+    }
+
+    public function getAverage(): ?float
+    {
+        return $this->average;
+    }
+
+    public function setAverage(?float $average): self
+    {
+        $this->average = $average;
 
         return $this;
     }

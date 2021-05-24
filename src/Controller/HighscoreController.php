@@ -54,8 +54,29 @@ class HighscoreController extends AbstractController
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
 
+        $allValues = $entityManager->getRepository(Highscore::class)->findAll();
+        $allValuesLength = count($allValues);
+        $totalScore = 0;
+        for ($i = 0; $i < $allValuesLength; $i++) { 
+            $totalScore = $totalScore + $allValues[$i]->getScore();
+        }
+        $averageScore = $totalScore / $allValuesLength;
+
+        //updaterar average
+        $entityManagerAverage = $this->getDoctrine()->getManager();
+        $product = $entityManagerAverage->getRepository(Highscore::class)->find(1);
+
+        if (!$product) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+
+        $product->setAverage($averageScore);
+        $entityManagerAverage->flush();
+
         return $this->render('message.html.twig', [
-            'message' => "Hejsan detta är min index sida och även test",
+            'message' => $averageScore,
         ]);
     }
     /**
