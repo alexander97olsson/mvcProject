@@ -76,7 +76,7 @@ class HighscoreController extends AbstractController
         $entityManagerAverage->flush();
 
         return $this->render('message.html.twig', [
-            'message' => $averageScore,
+            'message' => "Hejsan detta är min start sida, välkommen",
         ]);
     }
     /**
@@ -98,6 +98,27 @@ class HighscoreController extends AbstractController
 
         return $this->render('highscore/showHighscore.html.twig', [
             "highscore" => $highscore,
+        ]);
+    }
+    /**
+     * @Route("/showaverage", name="show_average")
+     */
+    public function showAverage(
+        EntityManagerInterface $entityManager
+    ): Response {
+        $highscore = $entityManager
+            ->getRepository(Highscore::class)
+            ->findAll();
+
+        $average =0;
+        foreach ($highscore as $myObject) {
+            if ($myObject->getId() == 1) {
+                $average = round($myObject->getAverage(), 2);
+            }
+        }
+
+        return $this->render('highscore/showAverage.html.twig', [
+            "average" => $average,
         ]);
     }
     /**

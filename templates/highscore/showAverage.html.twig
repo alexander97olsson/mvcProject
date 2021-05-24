@@ -1,23 +1,8 @@
 {{ include('./header.html.twig') }}
-<h1>Highscore</h1><br>
-<h2>Order by</h2>
-<a class="startgame" href="orderbyname">Name</a>
-<a class="startgame" href="allscore">Highest</a>
-<a class="startgame" href="orderbylowest">Lowest</a>
-<a class="startgame" href="orderbytime">Time</a><br><br><br>
-<p>
-    <table>
-        <tr>
-            <th>Average score of all games</th>
-        </tr>
-        {% for eachscore in highscore %}
-            {% if eachscore.getId() == 1 %}
-                <tr>
-                    <td>{{ eachscore.getAverage() }}</td>
-                </tr>
-            {% endif %}
-        {% endfor %}
-    </table>
-</p>
+<h1>Average score of all games</h1><br>
+<div>
+    <h2 class="average-score"> {{ average }} <h2>
+</div>
+
 
 {{ include('/footer.html.twig') }}

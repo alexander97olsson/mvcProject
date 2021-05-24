@@ -21,7 +21,7 @@ class HelloWorldController extends AbstractController
     public function hello(): Response
     {
         return $this->render('message.html.twig', [
-            'message' => "Hejsan detta är min index sida och även test",
+            'message' => "Hejsan detta är min start sida, välkommen",
         ]);
     }
 }

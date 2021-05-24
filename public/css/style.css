@@ -154,4 +154,8 @@ a.ahb-bottom:hover:before {
 .startgame:hover {
     background-color: #5e5e5e;
 }
+
+.average-score {
+    font-size: 60px;
+}
   
