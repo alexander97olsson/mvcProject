@@ -1,4 +1,4 @@
-<img src="yatzyyPic.png" alt="yatzy" width="540" height="360">
+<img src="yatzyyPic.png" alt="yatzy" width="270" height="180">
 
 [![Build Status](https://travis-ci.com/alexander97olsson/mvcProject.svg?branch=main)](https://travis-ci.com/alexander97olsson/mvcProject)
 
